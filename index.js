@@ -1,22 +1,11 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
 
-inquirer.prompt([
-    {
-        name: 'file_name',
-        message: 'What wouldyou like the file name to be?'
-    },
 
-    {
-        name:'content',
-        message: 'What content would you like to add to the file?'
+//const infoObj = require('./lib/promptUser');
+//const { default: inquirer } = require('inquirer');
+//const promptUser = require('./lib/promptUser');
+const prompts = require('./lib/promptUser');
 
-    }
-]).then(data => {
-    console.log(data);
-    fs.writeFile(data.file_name + '.txt', data.content, (err) => {
-        if(err) return console.log(err);
-        console.log(`You have succefully created the ${data.file_name}  file`)
-        console.log(`The content of the file are:\n ${data.content}  content`)
-    })
-});
+ console.log(prompts)
+
+ prompts.cyclePrompt();
+
